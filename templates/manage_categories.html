@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="/image/x-icon" href="/static/ICON/2222.ico">
+    <link rel="stylesheet" href="../static/CSS/normalize.css">
+    <link rel="stylesheet" href="../static/CSS/manage_account.css">
+    <link rel="stylesheet" href="../static/CSS/menu.css">
+    <title>Manage Categories</title>
+</head>
+
+
+<body>
+    <center>
+        <div>
+            <br>
+            <a href="/home"><img class="trans-m" src="/static/IMAGE/CitiZone.png" height="110" size="110" alt="login"
+                    title="Home"></a>
+            <!-- <a href="/sale"> -->
+            <img class="trans-m" src="/static/IMAGE/sale.png" height="110" size="110" title="Sale">
+            <!-- </a> -->
+            <a href="/info"><img class="trans-m" src="/static/IMAGE/TH1.png" height="110" size="110"
+                    title="View Info"></a>
+            <a href="/manage-account"><img class="trans-m" src="/static/IMAGE/Manage Accout.png" height="110" size="110"
+                    title="Manage Account"></a>
+            <!-- <a href="/manage-categories"> -->
+            <img src="/static/IMAGE/2222.png" height="110" size="110" title="Manage Categories">
+            <!-- </a> -->
+            <!-- <a href="/statistics"> -->
+            <img class="trans-m" src="/static/IMAGE/ASSA.png" height="110" size="110" title="Statistics">
+            <!-- </a> -->
+            <a href="/logout"><img class="trans-m" src="/static/IMAGE/LogOut.png" height="110" size="110"
+                    title="Log Out"></a>
+        </div>
+    </center>
+    <script>
+        var check = '{{ check }}';
+        if (check == 'True') {
+            alert('{{ alert }}')
+        }
+    </script>
+</body>
+
+</html>

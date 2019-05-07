@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url('/static/IMAGE/BG2.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <title>
+        {{ ps }}: {{ us }}
+    </title>
+    <link rel="shortcut icon" type="/image/x-icon" href="/static/ICON/CitiZone.ico" />
+    <link rel="stylesheet" href="/static/CSS/container.css">
+    <link rel="stylesheet" href="/static/CSS/curtain_menu.css">
+</head>
+
+<body <center>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="/">This feature is being developed</a>
+        </div>
+    </div>
+    <div class="mid">
+        <!-- <a href="/sale"> -->
+        <img onclick="openNav()" class="trans" src="/static/IMAGE/sale.png" title="Sale">&emsp;&emsp;&emsp;&emsp;
+        <!-- </a> -->
+        <a href="/info"><img class="trans" src="/static/IMAGE/TH1.png" title="View Info"></a>&emsp;&emsp;&emsp;&emsp;
+        <a href="/logout"><img class="trans" src="/static/IMAGE/LogOut.png" title="Log Out"></a><br><br><br>
+        <a href="/manage-account" id="MA"><img class="trans" src="/static/IMAGE/Manage Accout.png"
+                title="Manage Account"></a>&emsp;&emsp;&emsp;&emsp;
+        <!-- <a href="/manage-categories"> -->
+        <img class="trans" id="MC" onclick="openNav()" src="/static/IMAGE/2222.png"
+            title="Manage Categories"></a>&emsp;&emsp;&emsp;&emsp;
+        <!-- </a> -->
+        <!-- <a href="/statistics"> -->
+        <img class="trans" id="ST" onclick="openNav()" src="/static/IMAGE/ASSA.png" title="Statistics"></a>
+        <!-- </a> -->
+    </div>
+    </center>
+
+</body>
+<script>
+    var position = '{{ user.position }}';
+    if (position == 'Staff') {
+        document.getElementById("MA").hidden = true;
+        document.getElementById("MC").hidden = true;
+        document.getElementById("ST").hidden = true;
+    }
+    else if (position == 'Manager') {
+        document.getElementById("Admin").disabled = true;
+    }
+</script>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.height = "0%";
+    }
+</script>
+
+</html>

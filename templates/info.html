@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="/image/x-icon" href="/static/ICON/iinfo.ico">
+    <link rel="stylesheet" href="../static/CSS/normalize.css">
+    <link rel="stylesheet" href="../static/CSS/manage_account.css">
+    <link rel="stylesheet" href="../static/CSS/menu.css">
+    <link rel="stylesheet" href="../static/CSS/info.css">
+    <title>Info {{ account.fullname }}</title>
+</head>
+
+<body>
+    <center>
+        <div>
+            <br>
+            <a href="/home"><img class="trans-m" src="/static/IMAGE/CitiZone.png" height="110" size="110" alt="login"
+                    title="Home"></a>
+            <!-- <a href="/sale"> -->
+            <img class="trans-m" src="/static/IMAGE/sale.png" height="110" size="110" title="Sale">
+            <!-- </a> -->
+            <a href="/info"><img src="/static/IMAGE/TH1.png" height="110" size="110"
+                    title="View Info"></a>
+            <a href="/manage-account"><img class="trans-m" src="/static/IMAGE/Manage Accout.png" height="110" size="110"
+                    title="Manage Account"></a>
+            <!-- <a href="/manage-categories"> -->
+            <img class="trans-m" src="/static/IMAGE/2222.png" height="110" size="110" title="Manage Categories">
+            <!-- </a> -->
+            <!-- <a href="/statistics"> -->
+            <img class="trans-m" src="/static/IMAGE/ASSA.png" height="110" size="110" title="Statistics">
+            <!-- </a> -->
+            <a href="/logout"><img class="trans-m" src="/static/IMAGE/LogOut.png" height="110" size="110"
+                    title="Log Out"></a>
+        </div>
+        <br>
+        <div class="inf">
+            <form method=POST>
+                <input type="hidden" name="username" value="{{ account.username }}">
+                <label>Username </label><br>
+                <input type="text" name="usn" placeholder="Your Username" value="{{ account.username }}" disabled><br>
+                <label>Password</label><br>
+                <input type="password" name="password" placeholder="Your Password" value="{{ account.password }}"
+                    required><br>
+                <label>Full Name</label><br>
+                <input type="text" name="fullname" placeholder="Your Name" value="{{ account.fullname }}"><br>
+                <label>Address</label><br>
+                <input type="text" name="address" placeholder="Your Address" value="{{ account.address }}"><br>
+                <label>Phone</label><br>
+                <input type="text" name="phone" placeholder="Your Phone" value="{{ account.phone }}"><br>
+                <input type="radio" id="Admin" name="position" value="Admin" required>
+                <label for="Admin"> Admin </label>&emsp;&emsp;
+                <input type="radio" id="Manager" name="position" value="Manager" required>
+                <label for="Manager"> Manager </label>&emsp;&emsp;
+                <input type="radio" id="Staff" name="position" value="Staff" required>
+                <label for="Manager"> Staff </label>
+                <input type="submit" value="Change">
+            </form>
+        </div>
+    </center>
+    <script>
+        var alert = 'False';
+        if (alert == 'True')
+            alert('Your account has been updated');
+    </script>
+    <script>
+        var position = '{{ user.position }}';
+        if (position == 'Staff') {
+            document.getElementById("Admin").disabled = true;
+            document.getElementById("Manager").disabled = true;
+            document.getElementById("MA").hidden = true;
+            document.getElementById("MC").hidden = true;
+            document.getElementById("ST").hidden = true;
+        }
+        else if (position == 'Manager') {
+            document.getElementById("Admin").disabled = true;
+        }
+    </script>
+    <script>
+        var position = '{{ account.position }}';
+        if (position == 'Staff') {
+            document.getElementById("Staff").checked = true;
+
+        }
+        else if (position == 'Manager') {
+            document.getElementById("Manager").checked = true;
+        }
+        else
+            document.getElementById("Admin").checked = true;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="/image/x-icon" href="/static/ICON/QLTK.ico">
+    <link rel="stylesheet" href="../static/CSS/normalize.css">
+    <link rel="stylesheet" href="../static/CSS/manage_account.css">
+    <link rel="stylesheet" href="../static/CSS/menu.css">
+    <title>Manage Account</title>
+</head>
+
+
+<body>
+    <center>
+        <div>
+            <br>
+            <a href="/home"><img class="trans-m" src="/static/IMAGE/CitiZone.png" height="110" size="110" alt="login"
+                    title="Home"></a>
+            <!-- <a href="/sale"> -->
+            <img class="trans-m" src="/static/IMAGE/sale.png" height="110" size="110" title="Sale">
+            <!-- </a> -->
+            <a href="/info"><img class="trans-m" src="/static/IMAGE/TH1.png" height="110" size="110"
+                    title="View Info"></a>
+            <a href="/manage-account"><img src="/static/IMAGE/Manage Accout.png" height="110" size="110"
+                    title="Manage Account"></a>
+            <!-- <a href="/manage-categories"> -->
+            <img class="trans-m" src="/static/IMAGE/2222.png" height="110" size="110" title="Manage Categories">
+            <!-- </a> -->
+            <!-- <a href="/statistics"> -->
+            <img class="trans-m" src="/static/IMAGE/ASSA.png" height="110" size="110" title="Statistics">
+            <!-- </a> -->
+            <a href="/logout"><img class="trans-m" src="/static/IMAGE/LogOut.png" height="110" size="110"
+                    title="Log Out"></a>
+        </div>
+        <br>
+        <div id="table-form">
+            <button onclick="document.getElementById('id01').style.display='block'">Add New Account</button><br>
+            <table id="table">
+                <br>
+                <tr>
+                    <th>Username</th>
+                    <th>Fullname</th>
+                    <th>Position</th>
+                    <th colspan="3">Options</th>
+                </tr>
+                {% for account in accounts %}
+                <tr>
+                    <td>{{ account.username }}</td>
+                    <td>{{ account.fullname }}</td>
+                    <td>{{ account.position }}</td>
+                    <td><a href="{{ url_for('edit_account', id = account._id) }}"><img src="../static/ICON/edit.ico"
+                                height="30" size="30" alt="" title="Edit"></a>
+                    </td>
+                    <td><a href="{{ url_for('delete_account', id = account._id) }}"><img
+                                src="../static/ICON/trash-circle-red-512.ico" height="30" size="30" alt=""
+                                title="Delete"></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="id01" class="modal">
+            <form action="/manage-account/addaccount" class="modal-content animate" method=POST>
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+                <br>
+                <div class="container">
+                    <input type="text" placeholder="Enter New Username" name="username" required>
+                    <input type="password" placeholder="Enter New Password" name="password" required>
+                    <label>
+                        <p id="radio-position">
+                            <input type="radio" id="Admin" name="position" value="Admin" required>Admin&emsp;&emsp;
+                            <input type="radio" name="position" value="Manager" required>Manager&emsp;&emsp;
+                            <input type="radio" name="position" value="Staff" required>Staff
+                        </p>
+                    </label>
+                    <button type="submit">Add Account</button>
+                </div>
+            </form>
+    </center>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        var check = '{{ check }}';
+        if (check == 'True') {
+            alert('{{ alert }}')
+        }
+    </script>
+    <script>
+        var position = '{{ user.position }}';
+        if (position == 'Manager') {
+            document.getElementById("Admin").disabled = true;
+        }
+    </script>
+</body>
+
+</html>

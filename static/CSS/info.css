@@ -1,0 +1,55 @@
+input[type=text], select {
+    width: 85%;
+    padding: 10px 18px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #51686f;
+    text-align: center;
+    background-color: whitesmoke
+  }
+  label {
+      color: #51686f
+  }
+  input[type=radio], select {
+    color: #51686f;
+  }
+  input[type=password], select {
+    width: 85%;
+    padding: 10px 18px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid none;;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #51686f;
+    text-align: center;
+    background-color: whitesmoke
+  }
+  
+  input[type=submit] {
+    width: 85%;
+    background-color: #77b4be;
+    color:  white;
+    padding: 12px 18px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #e2807b;
+  }
+  
+  .inf {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+    width: 45%;
+  }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url('/static/IMAGE/BG2.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <title>
+        Coffee House
+    </title>
+    <link rel="shortcut icon" type="/image/x-icon" href="/static/ICON/CitiZone.ico" />
+    <link rel="stylesheet" href="/static/CSS/container.css">
+</head>
+
+<body>
+    <center>
+        <div class="mid">
+            <img class="trans" src="/static/IMAGE/CitiZone.png" height="150" size="150" alt="login"
+                onclick="document.getElementById('id01').style.display='block'" title="Log In">
+        </div>
+        <div id="id01" class="modal">
+            <form class="modal-content animate" method=POST>
+                <div class="imgcontainer">
+                    <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                        title="Close Modal">&times;</span> -->
+                    <img src="/static/IMAGE/coffee-house.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container">
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label>
+                        <p id="radio-position">
+                            <input type="radio" id="Admin" name="position" value="Admin" checked required>
+                            <label for="Admin"> Admin </label>&emsp;&emsp;
+                            <input type="radio" id="Manager" name="position" value="Manager" required>
+                            <label for="Manager"> Manager </label>&emsp;&emsp;
+                            <input type="radio" id="Staff" name="position" value="Staff" required>
+                            <label for="Manager"> Staff </label>
+                        </p>
+                    </label>
+                    <button type="submit">Login</button>
+                </div>
+
+                <div class="container" style="background-color: transparent">
+                </div>
+            </form>
+        </div>
+    </center>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        var check = '{{ check }}';
+        if (check == 'False') {
+            alert("Username or Password incorect")
+        }    
+    </script>
+</body>
+
+</html>

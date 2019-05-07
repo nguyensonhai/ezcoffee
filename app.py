@@ -2,7 +2,7 @@ from flask import Flask, render_template, session, redirect, request
 from bson import ObjectId
 from pymongo import MongoClient
 app = Flask(__name__)
-app.secret_key = "citizone"
+app.secret_key = "coffehouse"
 uri = 'mongodb://admin:04030211@area51-shard-00-00-ivvb1.mongodb.net:27017,area51-shard-00-01-ivvb1.mongodb.net:27017,area51-shard-00-02-ivvb1.mongodb.net:27017/test?ssl=true&replicaSet=Area51-shard-0&authSource=admin&retryWrites=true'
 client = MongoClient(uri)
 database = client.Area51m

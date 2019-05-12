@@ -1,3 +1,4 @@
 flask==0.12.2
 pymongo==3.8.0
+python = 3.7.3
 gunicorn

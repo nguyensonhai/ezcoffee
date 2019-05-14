@@ -128,8 +128,8 @@ def manage_account():
 
 @app.route('/manage-account/delete/<id>')
 def delete_account(id):
-    if('logged_in' in session):
-        user = collection_account.find_one({'_id': ObjectId(session['_id'])})
+    user = collection_account.find_one({'_id': ObjectId(session['_id'])})
+    if('logged_in' in session and user['position'] != 'Staff'):
         delete = collection_account.find_one({'_id': ObjectId(id)})
         if(user['position'] == 'Manager' and delete['position'] == 'Admin'):
             session['alert'] = "You can not delete Admin accounts"
